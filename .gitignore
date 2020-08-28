@@ -1,5 +1,5 @@
-.idea
-package-lock.json
+.git
+.idea/*
 node_modules
 allure-report
 allure-results
