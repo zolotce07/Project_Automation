@@ -23,6 +23,9 @@ class RegisterPageStep1 extends BasePage{
   get registerButton(){
     return $('[type="submit"]');
   }
+  get skipButton(){
+    return $('//span[text()="Skip"]');
+  }
 
   newUserRegister(){
     this.firstNameInput.setValue(newUser.firstName);
@@ -31,11 +34,13 @@ class RegisterPageStep1 extends BasePage{
     this.passwordInput.setValue(newUser.password);
     this.checkBoxTermsAndAgreements.click();
     this.registerButton.click();
+    this.skipButton.click();
   }
 
   open() {
     super.open('/user/register');
   }
+
 
 
 }

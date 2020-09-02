@@ -12,4 +12,4 @@ const newUser = {
   password,
 };
 
-export {newUser};
+export { newUser };
