@@ -1,22 +1,19 @@
+function verifyElementText(element, text)
+{
+  browser.waitUntil(() => element.getText() === text);
+}
 
-//
-//  module.exports = verifyElementText(element, text);
-// {
-//   browser.waitUntil(() => element.getText() === text);
-// }
-//
-// verifyElementIsDisplayed(element);
-// {
-//   browser.waitUntil(() => element.isDisplayed());
-// }
-//
-// isClickableBtn(element);
-// {
-//   browser.waitUntil(() => element.isClickable());
-//   element.click();
-// }
+function verifyElementIsDisplayed(element)
+{
+  browser.waitUntil(() => element.isDisplayed());
+}
 
-
-
+function isClickableBtn(element)
+{
+  browser.waitUntil(() => element.isClickable());
+  element.click();
+}
+module.exports = {verifyElementText, verifyElementIsDisplayed,isClickableBtn};
+  
 
 
