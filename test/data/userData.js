@@ -11,4 +11,28 @@ const newUser = {
   password,
 };
 
-export { newUser };
+const user = {
+  email: 'tomsmith@gmail.com',
+  password: '123456',
+  firstName: 'Tom',
+  lastName: 'Smith',
+  phone: '',
+  about: '',
+  goals: '',
+  englishLevel: '',
+  countryName: ''
+};
+
+const Admin = {
+  email: 'adminone@gmail.com',
+  password: '654321',
+  firstName: 'adminFirstName',
+  lastName: 'adminLastName',
+  phone: '',
+  about: '',
+  goals: '',
+  englishLevel: '',
+  countryName: ''
+};
+
+export { newUser, Admin, user };

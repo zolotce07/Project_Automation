@@ -1,7 +1,8 @@
 import { expect } from 'chai';
-import userRegisterStep1 from '../pageObject/registerPageStep1';
-import { newUser } from '../data/userData';
-const verifyElementText = require('../helpers/wait');
+import userRegisterStep1 from '../../pageObject/registerPageStep1';
+import { newUser } from '../../data/userData';
+import Utils from '../../helpers/utils';
+
 describe('USER REGISTER', () => {
   before('open page', () => {
     userRegisterStep1.open();
@@ -11,8 +12,8 @@ describe('USER REGISTER', () => {
   });
   it('should register user/step1', () => {
     userRegisterStep1.newUserRegister();
-    verifyElementText.verifyElementText(
-      userRegisterStep1.header.getText(),
+    Utils.verifyElementText(
+      userRegisterStep1.header,
       `${newUser.firstName} ${newUser.lastName}`,
     );
   });
