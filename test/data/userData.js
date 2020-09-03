@@ -1,5 +1,4 @@
 import faker from 'faker';
-
 const firstName = faker.name.firstName();
 const lastName = faker.name.lastName();
 const email = faker.internet.email();
