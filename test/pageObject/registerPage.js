@@ -1,7 +1,7 @@
 import BasePage from './BasePage';
 import { newUser } from '../data/userData';
 
-class RegisterPageStep1 extends BasePage {
+class RegisterPage extends BasePage {
   get header() {
     return $('h1');
   }
@@ -42,4 +42,4 @@ class RegisterPageStep1 extends BasePage {
   }
 }
 
-export default new RegisterPageStep1();
+export default new RegisterPage();
