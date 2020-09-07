@@ -1,5 +1,6 @@
 import BasePage from './BasePage';
 import { newUser } from '../data/userData';
+import Utils from '../helpers/utils';
 
 class RegisterPage extends BasePage {
   get header() {
@@ -28,10 +29,10 @@ class RegisterPage extends BasePage {
   }
 
   newUserRegister() {
-    this.firstNameInput.setValue(newUser.firstName);
-    this.lastNameInput.setValue(newUser.lastName);
-    this.emailInput.setValue(newUser.email);
-    this.passwordInput.setValue(newUser.password);
+    Utils.setValue(this.firstNameInput, newUser.firstName);
+    Utils.setValue(this.lastNameInput, newUser.lastName);
+    Utils.setValue(this.emailInput, newUser.email);
+    Utils.setValue(this.passwordInput, newUser.password);
     this.checkBoxTermsAndAgreements.click();
     this.registerButton.click();
     this.skipButton.click();
