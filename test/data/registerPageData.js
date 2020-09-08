@@ -1,4 +1,5 @@
 const registerPageData = {
   header: 'Create an account',
 };
-export {registerPageData};
+
+module.exports = registerPageData;

@@ -1,18 +1,19 @@
 import { expect } from 'chai';
 import RegisterPage from '../../pageObject/registerPage';
-import { newUser } from '../../data/userData';
+import UserProfilePage from './../../pageObject/userProfilePage';
 import Utils from '../../helpers/utils';
-import {registerPageData} from '../../data/registerPageData';
+import { randomUser } from './../../data/userData';
 
 describe('USER REGISTER', () => {
-  before('open page', () => {
+  before('Open Register Page', () => {
     RegisterPage.open();
+    expect(browser.getUrl()).includes('/user/register');
   });
-  it('should go to register page', () => {
-    expect(RegisterPage.header.getText()).eq(registerPageData.header);
-  });
+
   it('should register user/shortCut', () => {
     RegisterPage.newUserRegister();
-    Utils.getText(RegisterPage.header, `${newUser.firstName} ${newUser.lastName}`);
+    expect(Utils.getText(UserProfilePage.accountHolderName)).eq(
+      `${randomUser.firstName} ${randomUser.lastName}`,
+    );
   });
 });

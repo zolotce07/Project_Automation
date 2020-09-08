@@ -6,7 +6,7 @@ class Utils {
 
   getText(element) {
     this.waitForDisplayed(element);
-    element.getText();
+    return element.getText();
   }
 
   click(element) {

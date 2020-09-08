@@ -1,41 +1,48 @@
 import BasePage from './BasePage';
-import { newUser } from '../data/userData';
 import Utils from '../helpers/utils';
+import { randomUser } from '../data/userData';
 
 class RegisterPage extends BasePage {
   get header() {
     return $('h1');
   }
+
   get firstNameInput() {
     return $('[id="user_login_firstName"]');
   }
+
   get lastNameInput() {
     return $('[id="user_login_lastName"]');
   }
+
   get emailInput() {
     return $('[id="user_login_email"]');
   }
+
   get passwordInput() {
     return $('[id="user_login_password"]');
   }
+
   get checkBoxTermsAndAgreements() {
-    return $('[class="ant-checkbox-input"]');
+    return $('[class="ant-checkbox"]');
   }
-  get registerButton() {
-    return $('[type="submit"]');
+
+  get registerBtn() {
+    return $('button[type="submit"]');
   }
-  get skipButton() {
-    return browser.$('//span[text()="Skip"]');
+
+  get skipBtn() {
+    return $('//span[text()="Skip"]');
   }
 
   newUserRegister() {
-    Utils.setValue(this.firstNameInput, newUser.firstName);
-    Utils.setValue(this.lastNameInput, newUser.lastName);
-    Utils.setValue(this.emailInput, newUser.email);
-    Utils.setValue(this.passwordInput, newUser.password);
-    this.checkBoxTermsAndAgreements.click();
-    this.registerButton.click();
-    this.skipButton.click();
+    Utils.setValue(this.firstNameInput, randomUser.firstName);
+    Utils.setValue(this.lastNameInput, randomUser.lastName);
+    Utils.setValue(this.emailInput, randomUser.email);
+    Utils.setValue(this.passwordInput, randomUser.password);
+    Utils.click(this.checkBoxTermsAndAgreements);
+    Utils.click(this.registerBtn);
+    Utils.click(this.skipBtn);
   }
 
   open() {
