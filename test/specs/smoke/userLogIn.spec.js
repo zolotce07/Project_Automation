@@ -25,6 +25,7 @@ describe('USER LOG IN AS USER/ADMIN', () => {
     expect(LoginPage.header.getText()).eq(loginPageData.header);
   });
 
+
   it('Login As registeredUser', () => {
     LoginPage.login(registeredUser);
     Utils.waitForDisplayed(UserProfilePage.menuBtn);
