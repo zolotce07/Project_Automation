@@ -22,7 +22,7 @@ class BaseProfilePage {
   }
 
   get menuBtn() {
-    return $('//div[@class="ml-auto"]//a[contains(@class,"ant-dropdown-link")]');
+    return $('.ant-avatar');
   }
 
   get profileBtn() {
@@ -60,6 +60,7 @@ class BaseProfilePage {
     Utils.click(this.menuBtn);
     Utils.click(this.logoutBtn);
   }
+
 }
 
 export default BaseProfilePage;
