@@ -1,29 +1,31 @@
 import BasePage from './BasePage';
-import Utils from '../helpers/utils';
+import Utils from './../helpers/utils';
 
 class LoginPage extends BasePage {
   get header() {
     return $('h1');
   }
-  get emailInput(){
+  
+  get emailInput() {
     return $('[id="normal_login_email"]');
   }
-  get passwordInput(){
+  
+  get passwordInput() {
     return $('[id="normal_login_password"]');
   }
-  get loginButton(){
+  
+  get loginButton() {
     return $('[type="submit"]');
   }
-
+  
+  open() {
+    super.open('/user/login');
+  }
+  
   login(role){
     this.emailInput.setValue(role.email);
     this.passwordInput.setValue(role.password);
     Utils.click(this.loginButton);
-  }
-
-
-  open() {
-    super.open('/user/login');
   }
 }
 
