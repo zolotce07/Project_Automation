@@ -1,38 +1,34 @@
 import faker from 'faker';
-const firstName = faker.name.firstName();
-const lastName = faker.name.lastName();
-const email = faker.internet.email();
-const password = faker.internet.password();
 
-const newUser = {
-  firstName,
-  lastName,
-  email,
-  password,
+const randomUser = {
+  firstName: faker.name.firstName(),
+  lastName: faker.name.lastName(),
+  email: faker.internet.email(),
+  password: faker.internet.password(),
 };
 
-const user = {
+const registeredUser = {
   email: 'tomsmith@gmail.com',
   password: '123456',
   firstName: 'Tom',
   lastName: 'Smith',
-  phone: '',
+  phone: '3472642299',
   about: '',
   goals: '',
   englishLevel: '',
   countryName: ''
 };
 
-const Admin = {
+const admin = {
   email: 'adminone@gmail.com',
   password: '654321',
   firstName: 'adminFirstName',
   lastName: 'adminLastName',
-  phone: '',
+  phone: '3472642299',
   about: '',
   goals: '',
   englishLevel: '',
   countryName: ''
 };
 
-export { newUser, Admin, user };
+export { randomUser, admin, registeredUser };

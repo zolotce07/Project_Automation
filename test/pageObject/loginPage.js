@@ -5,27 +5,27 @@ class LoginPage extends BasePage {
   get header() {
     return $('h1');
   }
-  
+
   get emailInput() {
     return $('[id="normal_login_email"]');
   }
-  
+
   get passwordInput() {
     return $('[id="normal_login_password"]');
   }
-  
-  get loginButton() {
-    return $('[type="submit"]');
+
+  get loginBtn() {
+    return $('button[type="submit"]');
   }
-  
+
   open() {
     super.open('/user/login');
   }
-  
-  login(role){
-    this.emailInput.setValue(role.email);
-    this.passwordInput.setValue(role.password);
-    Utils.click(this.loginButton);
+
+  login(role) {
+    Utils.setValue(this.emailInput, role.email);
+    Utils.setValue(this.passwordInput, role.password);
+    Utils.click(this.loginBtn);
   }
 }
 
