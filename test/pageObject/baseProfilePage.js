@@ -9,16 +9,8 @@ class BaseProfilePage {
     return $('//sup[@title]');
   }
 
-  get dailyReports() {
-    return $('//h3[@data-qa="dailyReports"]');
-  }
-
   get completedTasks() {
     return $('//h3[@data-qa="completedCodewarsKata"]');
-  }
-
-  get createReportBtn() {
-    return $('//button[@data-qa="dailyReportsBtn"]');
   }
 
   get menuBtn() {
@@ -40,6 +32,29 @@ class BaseProfilePage {
   get logoutBtn() {
     return $('//li[@data-qa="logout"]');
   }
+  get coursesBtn() {
+    return $('//a[@href="/course"]');
+  }
+  get cardsBtn() {
+    return $('//a[@href="/flash"]');
+  }
+  get dairyReportsBtn() {
+    return $('//a[@href="/diary"]');
+  }
+  get groupsBtn() {
+    return $('//a[@href="/group"]');
+  }
+  get challengesBtn() {
+    return $('//a[@href="/challenge"]');
+  }
+  get shopBtn() {
+    return $('//a[@href="/shop"]');
+  }
+  get chatBtn() {
+    return $('//a[@href="/chat"]');
+  }
+
+
 
   goToProfile() {
     Utils.click(this.menuBtn);
