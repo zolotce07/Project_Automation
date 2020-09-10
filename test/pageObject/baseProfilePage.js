@@ -14,7 +14,7 @@ class BaseProfilePage {
   }
 
   get menuBtn() {
-    return $('.ant-avatar');
+    return $('//div[@class="ml-auto"]//a[contains(@class,"ant-dropdown-link")]');
   }
 
   get profileBtn() {
