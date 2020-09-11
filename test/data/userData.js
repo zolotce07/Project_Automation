@@ -16,7 +16,7 @@ const registeredUser = {
   about: '',
   goals: '',
   englishLevel: '',
-  countryName: ''
+  countryName: '',
 };
 
 const admin = {
@@ -28,7 +28,7 @@ const admin = {
   about: '',
   goals: '',
   englishLevel: '',
-  countryName: ''
+  countryName: '',
 };
 
 export { randomUser, admin, registeredUser };
