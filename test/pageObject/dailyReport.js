@@ -7,12 +7,12 @@ class DailyReport {
     return $('h6');
   }
 
-  get iNeedHelpCheckbox() {
-    return $$('.ant-checkbox-input')[0];
-  }
-
   get allCheckbox() {
     return $$('.ant-checkbox-input');
+  }
+
+  get iNeedHelpCheckbox() {
+    return $$('.ant-checkbox-input')[0];
   }
 
   get iUnderstoodEverythingCheckbox() {
@@ -55,6 +55,30 @@ class DailyReport {
 
   get gotAJobOfferCheckbox() {
     return $$('.ant-checkbox-input')[11];
+  }
+
+  get moraleList(){
+    return $('#morale');
+  }
+
+  get itemContentMorale(){
+    return $$('.ant-select-item-option-content')[0];
+  }
+
+  get hoursList(){
+    return $('#hours');
+  }
+
+  get itemContentHours(){
+    return $$('.ant-select-item-option-content')[17];
+  }
+
+  get dayDescription(){
+    return $('#description');
+  }
+
+  get submitBtn(){
+    return $('[type="submit"]');
   }
 }
 

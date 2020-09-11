@@ -41,6 +41,10 @@ class Utils {
       timeoutMsg: `Element not exist - '${element.selector}', Current page: ${browser.getUrl()}`,
     });
   }
+
+  verifyText(element, text){
+    browser.waitUntil(() => element.getText === text);
+  }
 }
 
 export default new Utils();
