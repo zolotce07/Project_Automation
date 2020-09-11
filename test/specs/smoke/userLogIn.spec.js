@@ -25,7 +25,6 @@ describe('USER LOG IN AS USER/ADMIN', () => {
     expect(LoginPage.header.getText()).eq(loginPageData.header);
   });
 
-
   it('Login As registeredUser', () => {
     LoginPage.login(registeredUser);
     Utils.waitForDisplayed(UserProfilePage.menuBtn);
@@ -39,6 +38,5 @@ describe('USER LOG IN AS USER/ADMIN', () => {
     expect(LoginPage.header.getText()).eq(loginPageData.header);
   });
 });
-
 
 // wdio wdio.conf.js --spec ./test/specs/smoke/userLogIn.spec.js// to run only single file
