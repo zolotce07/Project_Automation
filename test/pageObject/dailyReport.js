@@ -1,4 +1,8 @@
+import dailyReportData from '../data/dailyReportData';
+import utils from '../helpers/utils';
+
 class DailyReport {
+
   get createDayReportText() {
     return $('//div[@class="ant-drawer-title"]');
   }
@@ -79,6 +83,18 @@ class DailyReport {
 
   get submitBtn(){
     return $('[type="submit"]');
+  }
+
+  createDayReport(){
+    let arr = this.allCheckbox;
+    arr.forEach(el => el.click());
+    this.moraleList.click();
+    this.itemContentMorale.click();
+    this.hoursList.click();
+    this.itemContentHours.click();
+    this.dayDescription.setValue(dailyReportData.dayDescriptionText);
+    utils.click(this.submitBtn);
+    browser.pause(3000);
   }
 }
 
