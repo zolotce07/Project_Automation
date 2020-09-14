@@ -2,7 +2,6 @@ import dailyReportData from '../data/dailyReportData';
 import utils from '../helpers/utils';
 
 class DailyReport {
-
   get createDayReportText() {
     return $('//div[@class="ant-drawer-title"]');
   }
@@ -16,76 +15,84 @@ class DailyReport {
   }
 
   get iNeedHelpCheckbox() {
-    return $$('.ant-checkbox-input')[0];
+    return $('//label[@class="ant-checkbox-wrapper"]//span[contains(text(),"I need help")]');
   }
 
   get iUnderstoodEverythingCheckbox() {
-    return $$('.ant-checkbox-input')[1];
+    return $(
+      '//label[@class="ant-checkbox-wrapper"]//span[contains(text(),"I understood everything")]',
+    );
   }
 
   get helpedClassmatesCheckbox() {
-    return $$('.ant-checkbox-input')[2];
+    return $('//label[@class="ant-checkbox-wrapper"]//span[contains(text(),"Helped classmates")]');
   }
 
   get watchedLecturesCheckbox() {
-    return $$('.ant-checkbox-input')[3];
+    return $('//label[@class="ant-checkbox-wrapper"]//span[contains(text(),"Watched lectures")]');
   }
 
   get readDocumentationCheckbox() {
-    return $$('.ant-checkbox-input')[4];
+    return $('//label[@class="ant-checkbox-wrapper"]//span[contains(text(),"Read documentation")]');
   }
 
   get codePracticeCheckbox() {
-    return $$('.ant-checkbox-input')[5];
+    return $('//label[@class="ant-checkbox-wrapper"]//span[contains(text(),"Code practice")]');
   }
   get quizPracticeCheckbox() {
-    return $$('.ant-checkbox-input')[6];
+    return $('//label[@class="ant-checkbox-wrapper"]//span[contains(text(),"Quiz practice")]');
   }
   get interviewPreparationCheckbox() {
-    return $$('.ant-checkbox-input')[7];
+    return $(
+      '//label[@class="ant-checkbox-wrapper"]//span[contains(text(),"Interview preparation")]',
+    );
   }
 
   get recruiterPhoneCallCheckbox() {
-    return $$('.ant-checkbox-input')[8];
+    return $(
+      '//label[@class="ant-checkbox-wrapper"]//span[contains(text(),"Recruiter phone call")]',
+    );
   }
 
   get interviewTechnicalScreenCheckbox() {
-    return $$('.ant-checkbox-input')[9];
+    return $(
+      '//label[@class="ant-checkbox-wrapper"]//span[contains(text(),"Interview technical screen")]',
+    );
   }
 
   get interviewOnsiteCheckbox() {
-    return $$('.ant-checkbox-input')[10];
+    return $('//label[@class="ant-checkbox-wrapper"]//span[contains(text(),"Interview onsite")]');
   }
 
   get gotAJobOfferCheckbox() {
-    return $$('.ant-checkbox-input')[11];
+    return $('//label[@class="ant-checkbox-wrapper"]//span[contains(text(),"Got a job offer")]');
   }
 
-  get moraleList(){
+  get moraleList() {
     return $('#morale');
   }
 
-  get itemContentMorale(){
+  get itemContentMorale() {
     return $$('.ant-select-item-option-content')[0];
   }
 
-  get hoursList(){
+  get hoursList() {
     return $('#hours');
   }
 
-  get itemContentHours(){
+  get itemContentHours() {
     return $$('.ant-select-item-option-content')[17];
   }
 
-  get dayDescription(){
+  get dayDescription() {
     return $('#description');
   }
 
-  get submitBtn(){
+  get submitBtn() {
     return $('[type="submit"]');
   }
 
-  createDayReport(){
+  createDayReport() {
     let arr = this.allCheckbox;
     arr.forEach(el => el.click());
     this.moraleList.click();
