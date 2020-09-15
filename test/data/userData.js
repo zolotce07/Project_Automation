@@ -5,7 +5,10 @@ const randomUser = {
   lastName: faker.name.lastName(),
   email: faker.internet.email(),
   password: faker.internet.password(),
+  phoneNumber: faker.random.number(33344455666)
 };
+// faker.phone.phoneNumberFormat(0)
+// faker.phone.phoneNumber()
 
 const registeredUser = {
   email: 'tomsmith@gmail.com',

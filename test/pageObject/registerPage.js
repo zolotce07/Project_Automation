@@ -35,6 +35,22 @@ class RegisterPage extends BasePage {
     return $('//span[text()="Skip"]');
   }
 
+  get headerRegisterLong() {
+    return $('h5');
+  }
+
+  get openCountryDropDown() {
+    return $('.ant-select.ant-select-lg.ant-select-single.ant-select-show-arrow');
+  }
+
+  get countryUsa() {
+    return $('.ant-select-selection-item'); // <- not sure about USA
+  }
+
+  get phoneNumber() {
+    return $('#user_login_phone');
+  }
+
   newUserRegister() {
     Utils.setValue(this.firstNameInput, randomUser.firstName);
     Utils.setValue(this.lastNameInput, randomUser.lastName);
@@ -43,6 +59,19 @@ class RegisterPage extends BasePage {
     Utils.click(this.checkBoxTermsAndAgreements);
     Utils.click(this.registerBtn);
     Utils.click(this.skipBtn);
+  }
+
+  newUserRegisterLong() {
+    Utils.setValue(this.firstNameInput, randomUser.firstName);
+    Utils.setValue(this.lastNameInput, randomUser.lastName);
+    Utils.setValue(this.emailInput, randomUser.email);
+    Utils.setValue(this.passwordInput, randomUser.password);
+    Utils.click(this.checkBoxTermsAndAgreements);
+    Utils.click(this.registerBtn);
+    Utils.click(this.openCountryDropDown);
+    Utils.click(this.countryUsa);
+    Utils.setValue(this.phoneNumber, randomUser.phoneNumber);
+    Utils.click(this.registerBtn);
   }
 
   open() {

@@ -4,7 +4,7 @@ import UserProfilePage from './../../pageObject/userProfilePage';
 import Utils from '../../helpers/utils';
 import { randomUser } from './../../data/userData';
 
-describe('USER REGISTER', () => {
+describe('USER REGISTER SHORT', () => {
   before('Open Register Page', () => {
     RegisterPage.open();
     expect(browser.getUrl()).includes('/user/register');
@@ -17,3 +17,5 @@ describe('USER REGISTER', () => {
     );
   });
 });
+
+// wdio wdio.conf.js --spec ./test/specs/smoke/userRegisterShort.spec.js
