@@ -42,8 +42,15 @@ class Utils {
     });
   }
 
-  verifyText(element, text){
+  verifyText(element, text) {
     browser.waitUntil(() => element.getText === text);
+  }
+
+  randomNumber(numeralCategory, arr) {
+    return +arr
+      .map(() => arr[Math.floor(Math.random() * arr.length)])
+      .splice(0, numeralCategory)
+      .join('');
   }
 }
 
