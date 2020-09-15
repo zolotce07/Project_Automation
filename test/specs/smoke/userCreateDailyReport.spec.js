@@ -11,7 +11,7 @@ describe('', () => {
 
   it('should create day report', () => {
     userProfilePage.createReportBtn.click();
-    dailyReport.createDayReport();
+    dailyReport.createRandomDayReport();
   });
 });
 

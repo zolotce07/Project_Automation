@@ -93,8 +93,18 @@ class DailyReport {
   }
 
   createDayReport() {
-    let arr = this.allCheckbox;
+    const arr = this.allCheckbox;
     arr.forEach(el => el.click());
+    this.itemContentMorale.click();
+    this.hoursList.click();
+    this.itemContentHours.click();
+    this.dayDescription.setValue(dailyReportData.dayDescriptionText);
+    utils.click(this.submitBtn);
+    browser.pause(3000);
+  }
+
+  createRandomDayReport() {
+    this.allCheckbox[utils.randomNumber(dailyReportData.numeralCategory, dailyReportData.quantityCheckbox)].click();
     this.moraleList.click();
     this.itemContentMorale.click();
     this.hoursList.click();
