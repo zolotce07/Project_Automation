@@ -81,7 +81,8 @@ class DailyReport {
   }
 
   get itemContentHours() {
-    return $$('.ant-select-item-option-content')[17];
+    let numSet =[0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    return $$(`//div[@class="ant-select-item-option-content"][contains(text(),"${utils.randomNumber(numSet)}")]`)[1];
   }
 
   get dayDescription() {
