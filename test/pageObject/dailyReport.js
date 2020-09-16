@@ -73,7 +73,7 @@ class DailyReport {
   }
 
   get itemContentMorale() {
-    return $$('.ant-select-item-option-content');
+    return $$('.ant-select-item.ant-select-item-option');
   }
 
   get hoursList() {
