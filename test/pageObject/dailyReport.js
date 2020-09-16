@@ -73,7 +73,7 @@ class DailyReport {
   }
 
   get itemContentMorale() {
-    return $$('.ant-select-item-option-content')[0];
+    return $$('.ant-select-item.ant-select-item-option');
   }
 
   get hoursList() {
@@ -81,7 +81,8 @@ class DailyReport {
   }
 
   get itemContentHours() {
-    return $$('.ant-select-item-option-content')[17];
+    let numSet =[0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    return $$(`//div[@class="ant-select-item-option-content"][contains(text(),"${utils.randomNumber(numSet)}")]`)[1];
   }
 
   get dayDescription() {
@@ -98,18 +99,18 @@ class DailyReport {
     this.itemContentMorale.click();
     this.hoursList.click();
     this.itemContentHours.click();
-    this.dayDescription.setValue(dailyReportData.dayDescriptionText);
+    this.dayDescription.setValue(dailyReportData.charSet);
     utils.click(this.submitBtn);
     browser.pause(3000);
   }
 
   createRandomDayReport() {
-    this.allCheckbox[utils.randomNumber(dailyReportData.numeralCategory, dailyReportData.quantityCheckbox)].click();
+    this.allCheckbox[utils.randomNumber(this.allCheckbox)].click();
     this.moraleList.click();
-    this.itemContentMorale.click();
+    this.itemContentMorale[utils.randomNumber(this.itemContentMorale)].click();
     this.hoursList.click();
     this.itemContentHours.click();
-    this.dayDescription.setValue(dailyReportData.dayDescriptionText);
+    this.dayDescription.setValue(utils.randomText(dailyReportData.charSet));
     utils.click(this.submitBtn);
     browser.pause(3000);
   }
