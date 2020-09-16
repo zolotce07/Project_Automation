@@ -46,11 +46,16 @@ class Utils {
     browser.waitUntil(() => element.getText === text);
   }
 
-  randomNumber(numeralCategory, arr) {
-    return +arr
-      .map(() => arr[Math.floor(Math.random() * arr.length)])
-      .splice(0, numeralCategory)
-      .join('');
+  randomNumber(el) {
+    return Math.floor(Math.random() * el.length);
+  }
+
+  randomText(sharSet){
+    let text = '';
+    for (let i = 0; i < sharSet.length; i++){
+      text += sharSet[Math.floor(Math.random() * sharSet.length)];
+    }
+    return text;
   }
 }
 

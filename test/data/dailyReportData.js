@@ -1,7 +1,6 @@
 const dailyReportData = {
   modalWindowText: 'Marks to your daily report',
   modalWindowHeader: 'Create day report',
-  dayDescriptionText: 'All weekdays look the same. I do the same things every day.',
   iNeedHelpCheckbox:
     'I need help\nDescribe what difficulties you have, we will contact you and help',
   iUnderstoodCheckbox:
@@ -16,7 +15,7 @@ const dailyReportData = {
   interviewTechnicalScreenCheckbox: 'Interview technical screen',
   interviewOnsiteCheckbox: 'Interview onsite',
   gotAJobOfferCheckbox: 'Got a job offer',
-  numeralCategory: 1,
-  quantityCheckbox: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ,11],
+  charSet:'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-|?><',
+
 };
 module.exports = dailyReportData;
