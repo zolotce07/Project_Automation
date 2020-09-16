@@ -1,7 +1,6 @@
-class SettingsProfilePage {
-  get settingsProfileBtn() {
-    return $('[data-qa="profileTab"]');
-  }
+import baseSettingsPage from './baseSettingsPage';
+
+class SettingsProfile extends baseSettingsPage {
   get settingsProfileFirstName() {
     return $('[id="editProfile_firstName"]');
   }
@@ -18,15 +17,16 @@ class SettingsProfilePage {
     return $('[id="editProfile_goals"]');
   }
   get settingsProfileCountry() {
-    return $('[class="ant-select-selection-item"]')[0];
+    return $('[data-qa="countries"]');
   }
   get settingsProfileEnglishLevel() {
-    return $('[class="ant-select-selection-item"]')[1];
+    return $('[data-qa="englishLevel"]');
   }
   get settingsProfileTshirtSize() {
-    return $('[class="ant-select-selection-item"]')[2];
+    return $('[data-qa="tShirtSize"]');
   }
   get settingsProfileSubmitBtn() {
     return $('[type="submit"]');
   }
 }
+export default new SettingsProfile();

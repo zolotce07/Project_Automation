@@ -1,7 +1,7 @@
-class settingsPasswordPage {
-  get settingsPasswordBtn(){
-    return $('[data-qa="password"]');
-  }
+import baseSettingsPage from './baseSettingsPage';
+
+
+class settingsPassword extends baseSettingsPage{
   get settingsPasswordOldPassword() {
     return $('[id="oldPassword"]');
   }
@@ -15,3 +15,5 @@ class settingsPasswordPage {
     return $('[class="ant-btn ant-btn-primary"]');
   }
 }
+
+export default new settingsPassword();
