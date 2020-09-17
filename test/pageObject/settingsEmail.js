@@ -1,7 +1,6 @@
-class SettingsEmailPage {
-  get SettingsEmailPageBtn() {
-    return $('[data-qa="email"]');
-  }
+import baseSettingsPage from './baseSettingsPage';
+
+class SettingsEmail extends baseSettingsPage{
   get SettingsEmailPageOldEmail() {
     return $('[id="oldEmail"]');
   }
@@ -15,3 +14,5 @@ class SettingsEmailPage {
     return $('[class="ant-btn ant-btn-primary"]');
   }
 }
+
+export default new SettingsEmail();

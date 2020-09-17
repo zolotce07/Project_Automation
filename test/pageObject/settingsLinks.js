@@ -1,7 +1,6 @@
-class settingsLinksPage {
-  get settingsLinksPageBtn() {
-    return $('[data-qa="links"]');
-  }
+import baseSettingsPage from './baseSettingsPage';
+
+class settingsLinks extends baseSettingsPage{
   get settingsLinksPageGooglResume() {
     return $('[id="resume"]');
   }
@@ -21,3 +20,5 @@ class settingsLinksPage {
     return $('[class="ant-btn ant-btn-primary"]');
   }
 }
+
+export default new settingsLinks();
