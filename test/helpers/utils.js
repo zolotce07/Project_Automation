@@ -1,3 +1,5 @@
+import settingsProfile from '../pageObject/settingsProfile';
+
 class Utils {
   setValue(element, value) {
     this.waitForDisplayed(element);
@@ -56,6 +58,14 @@ class Utils {
       text += sharSet[Math.floor(Math.random() * sharSet.length)];
     }
     return text;
+  }
+
+  fieldEmptyfier(element) {
+    let length = element.getValue().length;
+    for (let i = 0; i <= length; i++) {
+      element.click();
+      element.keys('Backspace');
+    }
   }
 }
 

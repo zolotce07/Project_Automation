@@ -1,6 +1,6 @@
 import baseSettingsPage from './baseSettingsPage';
 
-class SettingsEmail extends baseSettingsPage{
+class SettingsEmail extends baseSettingsPage {
   get SettingsEmailPageOldEmail() {
     return $('[id="oldEmail"]');
   }
