@@ -45,7 +45,7 @@ class Utils {
   }
 
   verifyText(element, text) {
-    browser.waitUntil(() => element.getText === text);
+    browser.waitUntil(() => element.getText() === text);
   }
 
   randomNumber(el) {
@@ -61,9 +61,9 @@ class Utils {
   }
 
   fieldEmptyfier(element) {
+    element.click();
     let length = element.getValue().length;
     for (let i = 0; i <= length; i++) {
-      element.click();
       element.keys('Backspace');
     }
   }

@@ -55,7 +55,9 @@ class SettingsProfile extends baseSettingsPage {
     Utils.setValue(this.settingsProfileAbout, Utils.randomText(dailyReportData.charSet));
     Utils.setValue(this.settingsProfileMyGoals, Utils.randomText(dailyReportData.charSet));
     Utils.click(this.settingsProfileCountry);
-    Utils.click(this.settingsProfileCountryRandom[utils.randomNumber(this.settingsProfileCountryRandom)]);
+    Utils.click(
+      this.settingsProfileCountryRandom[utils.randomNumber(this.settingsProfileCountryRandom)],
+    );
     Utils.click(this.settingsProfileEnglishLevel);
     Utils.click(this.settingsProfileEnglashLevelAdvance);
     Utils.click(this.settingsProfileTshirtSize);
@@ -63,6 +65,5 @@ class SettingsProfile extends baseSettingsPage {
     // browser.pause(6000);
     Utils.click(this.settingsProfileSaveBtn);
   }
-
 }
 export default new SettingsProfile();

@@ -7,13 +7,12 @@ describe('USER PROFILE PERSONAL INFO FILLING/UPDATE', () => {
   before('', () => {
     loginPage.open();
     loginPage.login(registeredUser);
-    userProfilePage.goToSetting()
+    userProfilePage.goToSetting();
   });
   it('', () => {
     settingsProfile.userSettingsProfileInput();
   });
 });
-
 
 // wdio wdio.conf.js --spec ./test/specs/smoke/userSettingProfile.spec.js
 // this.settingsProfilePhone.keys('Backspace'.repeat(5));

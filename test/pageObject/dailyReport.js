@@ -1,6 +1,7 @@
 import dailyReportData from '../data/dailyReportData';
 import utils from '../helpers/utils';
-
+import userProfilePage from './userProfilePage';
+export const randomTextDairy = utils.randomText(dailyReportData.charSet);
 class DailyReport {
   get createDayReportText() {
     return $('//div[@class="ant-drawer-title"]');
@@ -81,12 +82,20 @@ class DailyReport {
   }
 
   get itemContentHours() {
-    let numSet =[0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    return $$(`//div[@class="ant-select-item-option-content"][contains(text(),"${utils.randomNumber(numSet)}")]`)[1];
+    let numSet = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    return $$(
+      `//div[@class="ant-select-item-option-content"][contains(text(),"${utils.randomNumber(
+        numSet,
+      )}")]`,
+    )[1];
   }
 
   get dayDescription() {
     return $('#description');
+  }
+
+  get dayDescriptionText() {
+    return $('.ant-row.mb-4');
   }
 
   get submitBtn() {
@@ -101,7 +110,6 @@ class DailyReport {
     this.itemContentHours.click();
     this.dayDescription.setValue(dailyReportData.charSet);
     utils.click(this.submitBtn);
-    browser.pause(3000);
   }
 
   createRandomDayReport() {
@@ -110,9 +118,9 @@ class DailyReport {
     this.itemContentMorale[utils.randomNumber(this.itemContentMorale)].click();
     this.hoursList.click();
     this.itemContentHours.click();
-    this.dayDescription.setValue(utils.randomText(dailyReportData.charSet));
+    this.dayDescription.setValue(randomTextDairy);
     utils.click(this.submitBtn);
-    browser.pause(3000);
+    userProfilePage.dailyReports.waitForDisplayed({ timeout: 5000 });
   }
 }
 
