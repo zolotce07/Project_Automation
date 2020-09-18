@@ -120,7 +120,7 @@ class DailyReport {
     this.itemContentHours.click();
     this.dayDescription.setValue(randomTextDairy);
     utils.click(this.submitBtn);
-    userProfilePage.dailyReports.waitForDisplayed({ timeout: 5000 });
+    utils.waitForDisplayed(userProfilePage.dailyReports);
   }
 }
 
