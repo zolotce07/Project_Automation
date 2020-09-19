@@ -52,9 +52,9 @@ class Utils {
     return Math.floor(Math.random() * el.length);
   }
 
-  randomText(sharSet){
+  randomText(sharSet) {
     let text = '';
-    for (let i = 0; i < sharSet.length; i++){
+    for (let i = 0; i < sharSet.length; i++) {
       text += sharSet[Math.floor(Math.random() * sharSet.length)];
     }
     return text;

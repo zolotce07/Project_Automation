@@ -3,6 +3,8 @@ import Utils from '../helpers/utils';
 import { randomUser } from '../data/userData';
 import dailyReportData from '../data/dailyReportData';
 import utils from '../helpers/utils';
+export const randomTextAbout = Utils.randomText(dailyReportData.charSet);
+export const randomTextGoals = Utils.randomText(dailyReportData.charSet);
 
 class SettingsProfile extends baseSettingsPage {
   get settingsProfileFirstName() {
@@ -50,23 +52,18 @@ class SettingsProfile extends baseSettingsPage {
   }
 
   userSettingsProfileInput() {
-    // Utils.setValue(this.settingsProfileFirstName, randomUser.firstName);
-    // Utils.setValue(this.settingsProfileLastName, randomUser.lastName);
-    // this.settingsProfilePhone.click();
     Utils.fieldEmptyfier(this.settingsProfilePhone);
     Utils.setValue(this.settingsProfilePhone, randomUser.phoneNumber);
-    Utils.setValue(this.settingsProfileAbout, Utils.randomText(dailyReportData.charSet));
-    Utils.setValue(this.settingsProfileMyGoals, Utils.randomText(dailyReportData.charSet));
+    Utils.setValue(this.settingsProfileAbout, randomTextAbout);
+    Utils.setValue(this.settingsProfileMyGoals, randomTextGoals);
     Utils.click(this.settingsProfileCountry);
-    Utils.click(
-      this.settingsProfileCountryRandom[utils.randomNumber(this.settingsProfileCountryRandom)],
-    );
+    Utils.click(this.settingsProfileCountryRandom[utils.randomNumber(this.settingsProfileCountryRandom)]);
     Utils.click(this.settingsProfileEnglishLevel);
     Utils.click(this.settingsProfileEnglashLevelAdvance);
     Utils.click(this.settingsProfileTshirtSize);
     Utils.click(this.settingsProfileMenUnisexM);
-    // browser.pause(6000);
     Utils.click(this.settingsProfileSaveBtn);
   }
 }
+
 export default new SettingsProfile();
