@@ -33,6 +33,9 @@ class SettingsProfile extends baseSettingsPage {
   get settingsProfileEnglashLevelAdvance() {
     return $('//div[@class="ant-select-item-option-content"][contains(text(),"Advanced")]');
   }
+  get settingsProfileEnglistLevelC() {
+    return $('(//span[@class="ant-select-selection-item"])[2]').getAttribute('title');
+  }
 
   get settingsProfileTshirtSize() {
     return $('[data-qa="tShirtSize"]');

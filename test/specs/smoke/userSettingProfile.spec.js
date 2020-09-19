@@ -1,7 +1,11 @@
+import { expect } from 'chai';
 import settingsProfile from '../../pageObject/settingsProfile';
 import loginPage from '../../pageObject/loginPage';
-import { registeredUser } from '../../data/userData';
+import { randomUser, registeredUser } from '../../data/userData';
 import userProfilePage from '../../pageObject/userProfilePage';
+import Utils from '../../helpers/utils';
+import dailyReportData from '../../data/dailyReportData';
+import profileData from '../../data/settingsProfileData'
 
 describe('USER PROFILE PERSONAL INFO FILLING/UPDATE', () => {
   before('', () => {
@@ -11,6 +15,20 @@ describe('USER PROFILE PERSONAL INFO FILLING/UPDATE', () => {
   });
   it('', () => {
     settingsProfile.userSettingsProfileInput();
+  });
+  it('', () => {
+    expect(settingsProfile.settingsProfilePhone.getValue()).eq(
+      `${randomUser.phoneNumber}`
+    );
+  });
+  // it('', () => {
+  //  settingsProfileAbout
+  //  settingsProfileGoal
+  //  settingsProfileCountry
+  //   );
+  // });
+  it('', () => {
+    expect(settingsProfile.settingsProfileEnglistLevelC).eq(profileData.languageLevel);
   });
 });
 
