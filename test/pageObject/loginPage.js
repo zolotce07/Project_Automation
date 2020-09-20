@@ -18,6 +18,10 @@ class LoginPage extends BasePage {
     return $('button[type="submit"]');
   }
 
+  get errorMsg() {
+    return $('//div[@role="alert"]');
+  }
+
   open() {
     super.open('/user/login');
   }

@@ -1,18 +1,18 @@
 const loginPageData = {
   header: 'Welcome back!',
-  registerAccount : {
+  registerAccount: {
     description: 'Don’t have an account?',
     link: 'Create one',
   },
-  forgotPassword : {
+  forgotPassword: {
     description: 'Forgot your password?',
-    link: 'Reset it'
+    link: 'Reset it',
   },
-  errorMsg : {
-    invalidEmail: 'email is not a valid email',
-    required: 'Required'
+  errorMsg: {
+    invalidEmail: '\'email\' is not a valid email',
+    required: 'Required',
   },
-  loginBtn: 'Log in'
+  loginBtn: 'Log in',
 };
 
 module.exports = loginPageData;
