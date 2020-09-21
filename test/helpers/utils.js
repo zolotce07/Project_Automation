@@ -1,4 +1,3 @@
-import settingsProfile from '../pageObject/settingsProfile';
 
 class Utils {
   setValue(element, value) {
@@ -52,7 +51,7 @@ class Utils {
     return Math.floor(Math.random() * el.length);
   }
 
-  randomText(sharSet) {
+  randomTextElement(sharSet) {
     let text = '';
     for (let i = 0; i < sharSet.length; i++) {
       text += sharSet[Math.floor(Math.random() * sharSet.length)];

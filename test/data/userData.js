@@ -13,6 +13,7 @@ const randomUser = {
 const registeredUser = {
   email: 'tomsmith@gmail.com',
   password: '123456',
+  passwordOne: '654321',
   firstName: 'Tom',
   lastName: 'Smith',
   phone: '3472642299',

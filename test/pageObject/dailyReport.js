@@ -1,7 +1,7 @@
 import dailyReportData from '../data/dailyReportData';
 import utils from '../helpers/utils';
 import userProfilePage from './userProfilePage';
-export const randomTextDairy = utils.randomText(dailyReportData.charSet);
+export const randomTextDairy = utils.randomTextElement(dailyReportData.charSet);
 class DailyReport {
   get createDayReportText() {
     return $('//div[@class="ant-drawer-title"]');
