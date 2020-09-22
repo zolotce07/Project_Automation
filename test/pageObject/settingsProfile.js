@@ -3,8 +3,6 @@ import Utils from '../helpers/utils';
 import { randomUser } from '../data/userData';
 import dailyReportData from '../data/dailyReportData';
 import utils from '../helpers/utils';
-export const randomTextAbout = Utils.randomText(dailyReportData.charSet);
-export const randomTextGoals = Utils.randomText(dailyReportData.charSet);
 
 class SettingsProfile extends baseSettingsPage {
   get settingsProfileFirstName() {
@@ -54,8 +52,8 @@ class SettingsProfile extends baseSettingsPage {
   userSettingsProfileInput() {
     Utils.fieldEmptyfier(this.settingsProfilePhone);
     Utils.setValue(this.settingsProfilePhone, randomUser.phoneNumber);
-    Utils.setValue(this.settingsProfileAbout, randomTextAbout);
-    Utils.setValue(this.settingsProfileMyGoals, randomTextGoals);
+    Utils.setValue(this.settingsProfileAbout, Utils.randomTextElement(dailyReportData.charSet));
+    Utils.setValue(this.settingsProfileMyGoals, Utils.randomTextElement(dailyReportData.charSet));
     Utils.click(this.settingsProfileCountry);
     Utils.click(this.settingsProfileCountryRandom[utils.randomNumber(this.settingsProfileCountryRandom)]);
     Utils.click(this.settingsProfileEnglishLevel);
