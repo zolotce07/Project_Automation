@@ -3,7 +3,7 @@ import dailyReport from '../../pageObject/dailyReport';
 import loginPage from '../../pageObject/loginPage';
 import { registeredUser } from '../../data/userData';
 import userProfilePage from '../../pageObject/userProfilePage';
-import {randomTextDairy} from '../../pageObject/dailyReport';
+import dailyReportData from '../../data/dailyReportData';
 
 describe('', () => {
   before(() => {
@@ -11,10 +11,15 @@ describe('', () => {
     loginPage.login(registeredUser);
   });
 
-  it('should create day report', () => {
+  xit('should create day report', () => {
+    userProfilePage.createReportBtn.click();
+    dailyReport.createDayReport();
+    expect(dailyReport.dayDescriptionText.getText()).eq(dailyReportData.charSet);
+  });
+
+  it('should create random day report', () => {
     userProfilePage.createReportBtn.click();
     dailyReport.createRandomDayReport();
-    expect(dailyReport.dayDescriptionText.getText()).eq(randomTextDairy);
   });
 });
 
