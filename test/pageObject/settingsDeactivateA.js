@@ -12,6 +12,7 @@ class settingsDeactivateA extends baseSettingsPage {
   get alertMessageOkBtn() {
     return $('[class="ant-btn ant-btn-dangerous"]');
   }
+
   deactivateAccount() {
     utils.click(this.settingsDeactivateAccount);
     utils.click(this.accountDeactivateBtn);

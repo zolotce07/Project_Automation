@@ -90,24 +90,29 @@ describe('LOGIN FUNCTIONALITY', () => {
     //   });
 
 
-    it('', async () => {
-      const user = await axios({
-        method: 'post',
-        url: 'https://server-stage.pasv.us/user/login',
-        data: {
-          email: 'adminone@gmail.com',
-          password: '654321',
-        },
-      })
-        .then(res => res.data)
-        .catch(err => err.response.data);
-      process.env.AdminToken = user.token; //We create variable for ALL folders "environment variable"
-      const AnminId = user.userId;
-      console.log(process.env.AdminToken);
-      console.log(AnminId);
-    });
   });
 });
+
+async function beforeHook() {
+  const user = await axios({
+    method: 'post',
+    url: 'https://server-stage.pasv.us/user/login',
+    data: {
+      email: 'adminone@gmail.com',
+      password: '654321',
+    },
+  })
+    .then(res => res.data)
+    .catch(err => err.response.data);
+  process.env.AdminToken = user.token; //We create variable for ALL folders "environment variable"
+  const AnminId = user.userId;
+  console.log(process.env.AdminToken);
+  console.log(AnminId);
+}
+
+module.exports = beforeHook;
+
+
 
 
 // wdio wdio.conf.js --spec ./test/specs/smoke/userLogin.spec.js

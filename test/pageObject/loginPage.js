@@ -21,6 +21,9 @@ class LoginPage extends BasePage {
   get errorMsg() {
     return $('//div[@role="alert"]');
   }
+  get deactivateAccountNotificationMsg() {
+    return $('[class="ant-notification-notice-message"]');
+  }
 
   open() {
     super.open('/user/login');
