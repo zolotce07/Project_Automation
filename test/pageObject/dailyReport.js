@@ -73,28 +73,20 @@ class DailyReport {
     return $('#morale');
   }
 
-  get itemContentMorale() {
-    return $$('.ant-select-item.ant-select-item-option')[2];
-  }
-  get randomItemContentMorale() {
-    return $$('.ant-select-item.ant-select-item-option');
-  }
-
   get hoursList() {
     return $('#hours');
   }
 
-  get randomItemContentHours() {
-    let numSet = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  get dropdownHour() {
     return $$(
-      `//div[@class="ant-select-item-option-content"][contains(text(),"${utils.randomNumber(
-        numSet,
-      )}")]`,
-    )[1];
+      '//div[@id="hours_list"]/following-sibling::div//div[@class="ant-select-item ant-select-item-option"]',
+    );
   }
 
-  get itemContentHours() {
-    return $$('//div[@class="ant-select-item-option-content"][contains(text(),"3")]')[1];
+  get dropdownMorale() {
+    return $$(
+      '//div[@id="morale_list"]/following-sibling::div//div[@class="ant-select-item ant-select-item-option"]',
+    );
   }
 
   get dayDescription() {
@@ -109,25 +101,30 @@ class DailyReport {
     return $('[type="submit"]');
   }
 
-  createDayReport() {
-    const arr = this.allCheckbox;
-    arr.forEach(el => el.click());
-    this.moraleList.click();
-    this.itemContentMorale.click();
-    this.hoursList.click();
-    this.itemContentHours.click();
-    this.dayDescription.setValue(dailyReportData.charSet);
-    utils.click(this.submitBtn);
+  selectAllCheckboxes() {
+    this.allCheckbox.forEach(checkbox => checkbox.click());
   }
 
-  createRandomDayReport() {
-    this.allCheckbox[utils.randomNumber(this.allCheckbox)].click();
-    browser.pause(4000);
+  /*
+  @param checkboxIndex index of element || selectAll
+  @param moraleIndex index of element
+  @param hoursIndex index of element
+  @param description string
+  */
+
+  createDayReport(checkboxIndex, moraleIndex, hoursIndex, description) {
+    if (checkboxIndex === 'selectAll') {
+      this.selectAllCheckboxes();
+    } else {
+      this.allCheckbox[checkboxIndex].click();
+    }
     this.moraleList.click();
-    this.randomItemContentMorale[utils.randomNumber(this.itemContentMorale)].click();
+    this.dropdownMorale[moraleIndex].scrollIntoView();
+    utils.click(this.dropdownMorale[moraleIndex]);
     this.hoursList.click();
-    this.randomItemContentHours.click();
-    this.dayDescription.setValue(utils.randomTextElement(dailyReportData.charSet));
+    this.dropdownHour[hoursIndex].scrollIntoView();
+    utils.click(this.dropdownHour[hoursIndex]);
+    this.dayDescription.setValue(description);
     utils.click(this.submitBtn);
     utils.waitForDisplayed(userProfilePage.dailyReports);
   }

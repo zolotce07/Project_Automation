@@ -4,22 +4,23 @@ import loginPage from '../../pageObject/loginPage';
 import { registeredUser } from '../../data/userData';
 import userProfilePage from '../../pageObject/userProfilePage';
 import dailyReportData from '../../data/dailyReportData';
+import utils from '../../helpers/utils';
 
-describe('', () => {
-  before(() => {
+describe('CREATE DAY REPORT FUNCTIONALITY', () => {
+  before('Login as registeredUser', () => {
+    browser.maximizeWindow();
     loginPage.open();
     loginPage.login(registeredUser);
   });
 
-  xit('should create day report', () => {
-    userProfilePage.createReportBtn.click();
-    dailyReport.createDayReport();
-    expect(dailyReport.dayDescriptionText.getText()).eq(dailyReportData.charSet);
-  });
-
   it('should create random day report', () => {
     userProfilePage.createReportBtn.click();
-    dailyReport.createRandomDayReport();
+    dailyReport.createDayReport(
+      0,
+      utils.randomNumber(dailyReport.dropdownMorale),
+      utils.randomNumber(dailyReport.dropdownHour),
+      utils.randomTextElement(dailyReportData.charSet));
+    // expect()
   });
 });
 
