@@ -4,9 +4,9 @@ import registerPage from '../../pageObject/registerPage';
 import settingsDeactivateA from '../../pageObject/settingsDeactivateA';
 import LoginPage from '../../pageObject/loginPage';
 import userProfilePage from '../../pageObject/userProfilePage';
-import { randomUser } from '../../data/userData';
+import { randomUser, admin } from '../../data/userData';
 import Utils from '../../helpers/utils';
-// const beforeHook = require('../../specs/smoke/userLogIn.spec');
+import  userDataAPI  from '../../helpers/hooks';
 
 describe('', () => {
   before('', () => {
@@ -18,28 +18,35 @@ describe('', () => {
   it('', () => {
     settingsDeactivateA.deactivateAccount();
   });
+
   it('', () => {
-    LoginPage.login({email: randomUser.email, password: randomUser.password});
+    LoginPage.login({ email: randomUser.email, password: randomUser.password });
     console.log(randomUser.email, randomUser.password);
-    expect(Utils.getText(LoginPage.deactivateAccountNotificationMsg)).eq('Account is Deactivated. Please contact support for reactivation.');
+    expect(Utils.getText(LoginPage.deactivateAccountNotificationMsg)).eq(
+      'Account is Deactivated. Please contact support for reactivation.',
+    );
   });
 
+  it('should return admin token', async () => {
+    const dataAPIAdmin = await userDataAPI(admin);
+    process.env.TOKEN_ADMIN = dataAPIAdmin.data.token;
+    console.log('adminToken: ' + process.env.TOKEN_ADMIN);
+  });
 
   let email = randomUser.email;
-  console.log(email);
   it('', async () => {
-    const pofigu = await axios({
+    const userDeactivate = await axios({
       method: 'get',
       url: `https://server-stage.pasv.us/user/email/${email}`,
       headers: {
-        Authorization: process.env.AdminToken
+        Authorization: process.env.TOKEN_ADMIN,
       },
     })
-      .then(res => res)
-      .catch(err => err.response);
-    console.log(pofigu);
-    console.log(process.env.AdminToken);
+      .then(res => res.data)
+      .catch(err => err);
+    console.log(userDeactivate);
+    expect(userDeactivate.message).eq('User get by email. Success');
+
   });
 });
-
 // wdio wdio.conf.js --spec ./test/specs/smoke/userSettingDeactivation.spec.js
