@@ -1,4 +1,4 @@
-import {expect} from 'chai';
+import { expect } from 'chai';
 import dailyReport from '../../pageObject/dailyReport';
 import loginPage from '../../pageObject/loginPage';
 import { admin, registeredUser } from '../../data/userData';
@@ -29,46 +29,39 @@ describe('CREATE DAY REPORT FUNCTIONALITY', () => {
   it('should return admin token', async () => {
     const dataAPIAdmin = await userDataAPI(admin);
     process.env.TOKEN_ADMIN = dataAPIAdmin.data.token;
-    console.log('adminToken: ' + process.env.TOKEN_ADMIN);
   });
 
-  it('should return admin token', async () => {
+  it('should return userID', async () => {
     const dataUserAPI = await userDataAPI(registeredUser);
-    process.env.TOKEN = dataUserAPI.data.token;
-    process.env.ID = dataUserAPI.data.userId;
-    //console.log('userToken: ' + process.env.TOKEN);
-    //console.log('userId: ' + process.env.ID);
+    process.env.userID = dataUserAPI.data.userId;
   });
 
-  it('DR ', async () => {
+  it('DR successfully created ', async () => {
     const dailyReport = await axios({
       method: 'get',
-      url: `${host}/diary/user/${process.env.ID}`,
-      headers: {
-        Authorization: process.env.TOKEN,
-      },
-    })
-      .then(res => res)
-      .catch(err => err);
-    //console.log(dailyReport);
-    expect(dailyReport.status).eq(200);
-    expect(dailyReport.data).not.empty;
-  });
-
-  /*it('DR del', async () => {
-    const dailyReportDelete = await axios({
-      method: 'delete',
-      url: `${host}/diary/${process.env.ID}`,
+      url: `${host}/diary/user/${process.env.userID}`,
       headers: {
         Authorization: process.env.TOKEN_ADMIN,
       },
     })
-      .then(res => res.data)
+      .then(res => res)
       .catch(err => err);
-    console.log(dailyReportDelete);
-    expect(dailyReportDelete.status).eq(200);
-    expect(dailyReportDelete.data).not.empty;
-  });*/
-});
+    process.env.DAILY_REPORT_ID = dailyReport.data[0]._id;
+    expect(dailyReport.status).eq(200);
+    expect(dailyReport.data).not.empty;
+  });
 
-// wdio wdio.conf.js --spec ./test/specs/smoke/userCreateDailyReport.spec.js
+  it('DR delete', async () => {
+    const dailyReportDelete = await axios({
+      method: 'delete',
+      url: `${host}/diary/${process.env.DAILY_REPORT_ID}`,
+      headers: {
+        Authorization: process.env.TOKEN_ADMIN,
+      },
+    })
+      .then(res => res)
+      .catch(err => err);
+    expect(dailyReportDelete.data.message).eq('Diary deleted');
+    expect(dailyReportDelete.status).eq(200);
+  });
+});

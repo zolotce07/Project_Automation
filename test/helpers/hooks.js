@@ -12,4 +12,3 @@ module.exports = function userDataAPI(role) {
   });
   return dataApi;
 };
-
