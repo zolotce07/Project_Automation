@@ -27,6 +27,10 @@ class SettingsProfile extends baseSettingsPage {
     return $$('.ant-select-item-option-content');
   }
 
+  get dropdownEnglishLevel() {
+    return $$('//div[@id="editProfile_englishLevel_list"]/following-sibling::div//div[contains(@class, "ant-select-item ant-select-item-option")]');
+  }
+
   get settingsProfileEnglishLevel() {
     return $('[data-qa="englishLevel"]');
   }
@@ -49,17 +53,22 @@ class SettingsProfile extends baseSettingsPage {
     return $('[type="submit"]');
   }
 
-  userSettingsProfileInput() {
+  userSettingsProfileInput(aboutText, myGoalsText, phoneNumber) {
     Utils.fieldEmptyfier(this.settingsProfilePhone);
-    Utils.setValue(this.settingsProfilePhone, randomUser.phoneNumber);
-    Utils.setValue(this.settingsProfileAbout, Utils.randomTextElement(dailyReportData.charSet));
-    Utils.setValue(this.settingsProfileMyGoals, Utils.randomTextElement(dailyReportData.charSet));
-    Utils.click(this.settingsProfileCountry);
-    Utils.click(this.settingsProfileCountryRandom[utils.randomNumber(this.settingsProfileCountryRandom)]);
+    Utils.setValue(this.settingsProfilePhone, phoneNumber);
+    Utils.setValue(this.settingsProfileAbout, aboutText);
+    Utils.setValue(this.settingsProfileMyGoals, myGoalsText);
+    // Utils.click(this.settingsProfileCountry);
+    // Utils.click(this.settingsProfileCountryRandom[utils.randomNumber(this.settingsProfileCountryRandom)]);
+    browser.pause(2000);
     Utils.click(this.settingsProfileEnglishLevel);
-    Utils.click(this.settingsProfileEnglashLevelAdvance);
-    Utils.click(this.settingsProfileTshirtSize);
-    Utils.click(this.settingsProfileMenUnisexM);
+    this.dropdownEnglishLevel[4].scrollIntoView();
+    Utils.click(this.dropdownEnglishLevel[4]);
+    browser.pause(2000);
+    // Utils.click(this.settingsProfileEnglishLevel);
+    // Utils.click(this.settingsProfileEnglashLevelAdvance);
+    // Utils.click(this.settingsProfileTshirtSize);
+    // Utils.click(this.settingsProfileMenUnisexM);
     Utils.click(this.settingsProfileSaveBtn);
   }
 }

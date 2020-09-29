@@ -4,6 +4,13 @@ import loginPage from '../../pageObject/loginPage';
 import { randomUser, registeredUser } from '../../data/userData';
 import userProfilePage from '../../pageObject/userProfilePage';
 import profileData from '../../data/settingsProfileData';
+import Utils from '../../helpers/utils';
+import dailyReportData from '../../data/dailyReportData';
+
+let aboutText = Utils.randomTextElement(dailyReportData.charSet);
+let myGoalsText = Utils.randomTextElement(dailyReportData.charSet);
+let phoneNumber = randomUser.phoneNumber;
+let country;
 
 describe('USER PROFILE PERSONAL INFO FILLING/UPDATE', () => {
   before('', () => {
@@ -13,28 +20,40 @@ describe('USER PROFILE PERSONAL INFO FILLING/UPDATE', () => {
   });
 
   it('', () => {
-    settingsProfile.userSettingsProfileInput();
+    settingsProfile.userSettingsProfileInput(aboutText, myGoalsText, phoneNumber, country);
   });
 
   it('', () => {
-    expect(settingsProfile.settingsProfilePhone.getValue()).eq(`${randomUser.phoneNumber}`);
+    expect(settingsProfile.settingsProfilePhone.getValue()).eq(phoneNumber.toString());
   });
 
   it('', () => {
-    // expect(settingsProfile.settingsProfileAbout.getText()).eq(randomTextAbout);
+    expect(settingsProfile.settingsProfileAbout.getText()).eq(aboutText);
   });
 
   it('', () => {
-    // expect(settingsProfile.settingsProfileMyGoals.getText()).eq(randomTextGoals);
+    expect(settingsProfile.settingsProfileMyGoals.getText()).eq(myGoalsText);
   });
 
-  it('', () => {
-    //expect(settingsProfile.settingsProfileCountry.getText()).eq();
-  });
+  // it('', () => {
+  //   console.log(settingsProfile.settingsProfileCountry.getText());
+  //   expect(settingsProfile.settingsProfileCountry.getText()).eq();
+  // });
+
+  const englishLevelArr = [
+    'Zero',
+    'Beginner',
+    'Elementary',
+    'Pre-Intermediate',
+    'Intermediate',
+    'Upper intermediate',
+    'Advanced',
+    'Proficient',
+    'Native',
+  ];
 
   it('', () => {
-    expect(settingsProfile.settingsProfileEnglistLevelC).eq(profileData.languageLevel);
-
+    expect(settingsProfile.settingsProfileEnglishLevel.getText()).eq(englishLevelArr[4]);
   });
 });
 
