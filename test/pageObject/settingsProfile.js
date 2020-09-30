@@ -1,75 +1,58 @@
 import baseSettingsPage from './baseSettingsPage';
 import Utils from '../helpers/utils';
-import { randomUser } from '../data/userData';
-import dailyReportData from '../data/dailyReportData';
-import utils from '../helpers/utils';
 
 class SettingsProfile extends baseSettingsPage {
-  get settingsProfileFirstName() {
-    return $('[id="editProfile_firstName"]');
-  }
-  get settingsProfileLastName() {
-    return $('[id="editProfile_lastName"]');
-  }
-  get settingsProfilePhone() {
+
+  get phoneField() {
     return $('[id="editProfile_phone"]');
   }
-  get settingsProfileAbout() {
+  get aboutField() {
     return $('[id="editProfile_about"]');
   }
-  get settingsProfileMyGoals() {
+  get myGoalsField() {
     return $('[id="editProfile_goals"]');
   }
-  get settingsProfileCountry() {
+  get countryField() {
     return $('[data-qa="countries"]');
   }
-  get settingsProfileCountryRandom() {
-    return $$('.ant-select-item-option-content');
+  get countryDropDown() {
+    return $$('//div[@id="editProfile_countryName_list"]/following-sibling::div//div[contains(@class, "ant-select-item ant-select-item-option")]');
   }
 
-  get dropdownEnglishLevel() {
+  get englishLevelField() {
+    return $('[data-qa="englishLevel"]');
+  }
+
+  get englishLevelDropDown() {
     return $$('//div[@id="editProfile_englishLevel_list"]/following-sibling::div//div[contains(@class, "ant-select-item ant-select-item-option")]');
   }
 
-  get settingsProfileEnglishLevel() {
-    return $('[data-qa="englishLevel"]');
-  }
-  get settingsProfileEnglashLevelAdvance() {
-    return $('//div[@class="ant-select-item-option-content"][contains(text(),"Advanced")]');
-  }
-  get settingsProfileEnglistLevelC() {
-    return $('(//span[@class="ant-select-selection-item"])[2]').getAttribute('title');
-  }
-
-  get settingsProfileTshirtSize() {
+  get tShirtSizeField() {
     return $('[data-qa="tShirtSize"]');
   }
 
-  get settingsProfileMenUnisexM() {
+  get menUnisexMdropDowm() {
     return $('//div[@class="ant-select-item-option-content"][contains(text(),"Men/Unisex - M")]');
   }
 
-  get settingsProfileSaveBtn() {
+  get saveBtn() {
     return $('[type="submit"]');
   }
 
   userSettingsProfileInput(aboutText, myGoalsText, phoneNumber) {
-    Utils.fieldEmptyfier(this.settingsProfilePhone);
-    Utils.setValue(this.settingsProfilePhone, phoneNumber);
-    Utils.setValue(this.settingsProfileAbout, aboutText);
-    Utils.setValue(this.settingsProfileMyGoals, myGoalsText);
-    // Utils.click(this.settingsProfileCountry);
-    // Utils.click(this.settingsProfileCountryRandom[utils.randomNumber(this.settingsProfileCountryRandom)]);
-    browser.pause(2000);
-    Utils.click(this.settingsProfileEnglishLevel);
-    this.dropdownEnglishLevel[4].scrollIntoView();
-    Utils.click(this.dropdownEnglishLevel[4]);
-    browser.pause(2000);
-    // Utils.click(this.settingsProfileEnglishLevel);
-    // Utils.click(this.settingsProfileEnglashLevelAdvance);
-    // Utils.click(this.settingsProfileTshirtSize);
-    // Utils.click(this.settingsProfileMenUnisexM);
-    Utils.click(this.settingsProfileSaveBtn);
+    Utils.fieldEmptyfier(this.phoneField);
+    Utils.setValue(this.phoneField, phoneNumber);
+    Utils.setValue(this.aboutField, aboutText);
+    Utils.setValue(this.myGoalsField, myGoalsText);
+    Utils.click(this.countryField);
+    this.countryDropDown[1].scrollIntoView();
+    Utils.click(this.countryDropDown[1]);
+    Utils.click(this.englishLevelField);
+    this.englishLevelDropDown[4].scrollIntoView();
+    Utils.click(this.englishLevelDropDown[4]);
+    Utils.click(this.tShirtSizeField);
+    Utils.click(this.menUnisexMdropDowm);
+    Utils.click(this.saveBtn);
   }
 }
 
