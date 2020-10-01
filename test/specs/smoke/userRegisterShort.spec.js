@@ -30,7 +30,7 @@ describe('USER REGISTER SHORT', () => {
     })
       .then(res => res)
       .then(err => err);
-    expect(rmUser.data.user.name).eq(randomUser.firstName +' '+ randomUser.lastName);
+    expect(rmUser.data.user.name).eq(randomUser.firstName + ' ' + randomUser.lastName);
   });
 
   it('should return admin token', async () => {
@@ -48,9 +48,8 @@ describe('USER REGISTER SHORT', () => {
     })
       .then(res => res)
       .catch(err => err);
-    console.log('RESULT ' + randomUserDelete);
-    //expect(dailyReportDelete.data.message).eq('Diary deleted');
     expect(randomUserDelete.status).eq(200);
+    expect(randomUserDelete.data.message).eq('User deleted');
   });
 });
 
