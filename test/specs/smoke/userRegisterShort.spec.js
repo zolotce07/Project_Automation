@@ -2,8 +2,7 @@ import { expect } from 'chai';
 import RegisterPage from '../../pageObject/registerPage';
 import UserProfilePage from './../../pageObject/userProfilePage';
 import Utils from '../../helpers/utils';
-import { admin, randomUser } from './../../data/userData';
-import userDataAPI from '../../helpers/hooks';
+import { randomUser } from './../../data/userData';
 const axios = require('axios');
 
 describe('USER REGISTER SHORT', () => {
@@ -19,7 +18,7 @@ describe('USER REGISTER SHORT', () => {
     );
   });
 
-  it('should user be registered ', async () => {
+  it('should check if user registered by login it', async () => {
     const rmUser = await axios({
       method: 'post',
       url: 'https://server-stage.pasv.us/user/login',
@@ -31,11 +30,6 @@ describe('USER REGISTER SHORT', () => {
       .then(res => res)
       .then(err => err);
     expect(rmUser.data.user.name).eq(randomUser.firstName + ' ' + randomUser.lastName);
-  });
-
-  it('should return admin token', async () => {
-    const dataAPIAdmin = await userDataAPI(admin);
-    process.env.TOKEN_ADMIN = dataAPIAdmin.data.token;
   });
 
   it('should random user delete', async () => {

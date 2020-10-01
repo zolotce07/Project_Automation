@@ -1,3 +1,5 @@
+const HookBefore = require('./test/helpers/hooks');
+
 exports.config = {
 
   runner: 'local',
@@ -82,6 +84,7 @@ exports.config = {
    */
   // before: function (capabilities, specs) {
   // },
+  before: HookBefore,
   /**
    * Runs before a WebdriverIO command gets executed.
    * @param {String} commandName hook command name

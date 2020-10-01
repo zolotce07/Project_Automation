@@ -1,11 +1,10 @@
 import { expect } from 'chai';
 import dailyReport from '../../pageObject/dailyReport';
 import loginPage from '../../pageObject/loginPage';
-import { admin, registeredUser } from '../../data/userData';
+import { registeredUser } from '../../data/userData';
 import userProfilePage from '../../pageObject/userProfilePage';
 import dailyReportData from '../../data/dailyReportData';
 import utils from '../../helpers/utils';
-import userDataAPI from '../../helpers/hooks';
 const axios = require('axios');
 const host = 'https://server-stage.pasv.us';
 
@@ -26,20 +25,10 @@ describe('CREATE DAY REPORT FUNCTIONALITY', () => {
     );
   });
 
-  it('should return admin token', async () => {
-    const dataAPIAdmin = await userDataAPI(admin);
-    process.env.TOKEN_ADMIN = dataAPIAdmin.data.token;
-  });
-
-  it('should return userID', async () => {
-    const dataUserAPI = await userDataAPI(registeredUser);
-    process.env.userID = dataUserAPI.data.userId;
-  });
-
-  it('DR successfully created ', async () => {
+  it('should check if DayReport was successfully created', async () => {
     const dailyReport = await axios({
       method: 'get',
-      url: `${host}/diary/user/${process.env.userID}`,
+      url: `${host}/diary/user/${process.env.ID_USER}`,
       headers: {
         Authorization: process.env.TOKEN_ADMIN,
       },
@@ -49,6 +38,8 @@ describe('CREATE DAY REPORT FUNCTIONALITY', () => {
     process.env.DAILY_REPORT_ID = dailyReport.data[0]._id;
     expect(dailyReport.status).eq(200);
     expect(dailyReport.data).not.empty;
+    console.log(dailyReport);
+    console.log('SPEC:' + process.env.ID_USER);
   });
 
   it('DR delete', async () => {
@@ -65,3 +56,5 @@ describe('CREATE DAY REPORT FUNCTIONALITY', () => {
     expect(dailyReportDelete.status).eq(200);
   });
 });
+
+// wdio wdio.conf.js --spec ./test/specs/smoke/userCreateDailyReport.spec.js
