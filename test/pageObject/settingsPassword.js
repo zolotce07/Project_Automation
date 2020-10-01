@@ -3,13 +3,13 @@ import Utils from '../helpers/utils';
 import { registeredUser } from '../data/userData';
 
 class settingsPassword extends baseSettingsPage {
-  get settingsPasswordOldPassword() {
+  get oldPasswordField() {
     return $('[id="oldPassword"]');
   }
-  get settingsPasswordNewPassword() {
+  get newPasswordField() {
     return $('[id="newPassword"]');
   }
-  get settingsPasswordConfNewPassword() {
+  get confNewPasswordField() {
     return $('[id="confirmPassword"]');
   }
   get updatePasswordBtn() {
@@ -18,17 +18,17 @@ class settingsPassword extends baseSettingsPage {
 
   changePasswordForTest() {
     browser.pause(4000);
-    Utils.setValue(this.settingsPasswordOldPassword, registeredUser.password);
-    Utils.setValue(this.settingsPasswordNewPassword, registeredUser.passwordOne);
-    Utils.setValue(this.settingsPasswordConfNewPassword, registeredUser.passwordOne);
+    Utils.setValue(this.oldPasswordField, registeredUser.password);
+    Utils.setValue(this.newPasswordField, registeredUser.passwordOne);
+    Utils.setValue(this.confNewPasswordField, registeredUser.passwordOne);
     browser.pause(3000);
     Utils.click(this.updatePasswordBtn);
 
   }
   changeForDefaultPassword() {
-    Utils.setValue(this.settingsPasswordOldPassword, registeredUser.passwordOne);
-    Utils.setValue(this.settingsPasswordNewPassword, registeredUser.password);
-    Utils.setValue(this.settingsPasswordConfNewPassword, registeredUser.password);
+    Utils.setValue(this.oldPasswordField, registeredUser.passwordOne);
+    Utils.setValue(this.newPasswordField, registeredUser.password);
+    Utils.setValue(this.confNewPasswordField, registeredUser.password);
     browser.pause(3000);
     Utils.click(this.updatePasswordBtn);
   }
