@@ -1,26 +1,29 @@
 import baseSettingsPage from './baseSettingsPage';
 
 class settingsShippingA extends baseSettingsPage {
-  get settingsFullName() {
+  get fullNameField() {
     return $('[id="fullName"]');
   }
-  get settingsCountry() {
+  get countryField() {
     return $('[class="ant-select-selection-item"]');
   }
-  get settingsStreetAddress() {
+  get streetAddressField() {
     return $('[id="address"]');
   }
-  get settingsCity() {
+  get cityField() {
     return $('[id="city"]');
   }
-  get settingsStateProvince() {
+  get stateProvinceField() {
     return $('[id="state"]');
   }
-  get settingsPostalCode() {
+  get postalCodeField() {
     return $('[id="zipCode"]');
   }
-  get settingsContactPhone() {
+  get contactPhoneField() {
     return $('[id="contactPhone"]');
+  }
+  get saveAddressBtn() {
+    return $('[class="ant-btn ant-btn-primary"]');
   }
 }
 

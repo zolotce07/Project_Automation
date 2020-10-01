@@ -6,7 +6,7 @@ class settingsDeactivateA extends baseSettingsPage {
   get accountDeactivationHeader() {
     return $('h2');
   }
-  get accountDeactivateBtn() {
+  get deactivateBtn() {
     return $('[data-qa="deactivateBtn"]');
   }
   get alertMessageOkBtn() {
@@ -15,7 +15,7 @@ class settingsDeactivateA extends baseSettingsPage {
 
   deactivateAccount() {
     utils.click(this.settingsDeactivateAccount);
-    utils.click(this.accountDeactivateBtn);
+    utils.click(this.deactivateBtn);
     utils.click(this.alertMessageOkBtn);
   }
 }

@@ -1,22 +1,22 @@
 import baseSettingsPage from './baseSettingsPage';
 
 class settingsLinks extends baseSettingsPage{
-  get settingsLinksPageGooglResume() {
+  get googleResumeField() {
     return $('[id="resume"]');
   }
-  get settingsLinksPageLinkedin() {
+  get linkedinLinkField() {
     return $('[id="linkedIn"]');
   }
-  get settingsLinksPageFacebook() {
+  get facebookLinkField() {
     return $('[id="facebook"]');
   }
-  get settingsLinksPageGitHubLink() {
+  get gitHubLinkField() {
     return $('[id="github"]');
   }
-  get settingsLinksPageCodewarsLink() {
+  get codewarsLinkField() {
     return $('[id="codewarsUsername"]');
   }
-  get settingsLinksPageSaveBtn() {
+  get saveBtn() {
     return $('[class="ant-btn ant-btn-primary"]');
   }
 }

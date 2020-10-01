@@ -1,13 +1,13 @@
 import baseSettingsPage from './baseSettingsPage';
 
 class SettingsEmail extends baseSettingsPage {
-  get SettingsEmailPageOldEmail() {
+  get OldEmailField() {
     return $('[id="oldEmail"]');
   }
-  get SettingsEmailPageNewEmail() {
+  get newEmailField() {
     return $('[id="newEmail"]');
   }
-  get SettingsEmailPageConfirmEmail() {
+  get confirmEmailField() {
     return $('[id="confirmEmail"]');
   }
   get updateEmailBtn() {
