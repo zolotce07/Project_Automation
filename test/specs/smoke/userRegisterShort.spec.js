@@ -15,6 +15,7 @@ describe('USER REGISTER SHORT', () => {
     RegisterPage.newUserRegister();
     expect(Utils.getText(UserProfilePage.accountHolderName)).eq(
       `${randomUser.firstName} ${randomUser.lastName}`,
+
     );
   });
 
@@ -44,6 +45,8 @@ describe('USER REGISTER SHORT', () => {
       .catch(err => err);
     expect(randomUserDelete.status).eq(200);
     expect(randomUserDelete.data.message).eq('User deleted');
+    console.log(process.env.TOKEN_ADMIN);
+    console.log(randomUserDelete.data.message);
   });
 });
 
