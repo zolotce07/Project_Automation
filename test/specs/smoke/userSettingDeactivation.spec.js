@@ -6,7 +6,7 @@ import LoginPage from '../../pageObject/loginPage';
 import userProfilePage from '../../pageObject/userProfilePage';
 import { randomUser, admin } from '../../data/userData';
 import Utils from '../../helpers/utils';
-import  userDataAPI  from '../../helpers/hooks';
+import  userDataAPI  from '../../helpers/hooksAdmin';
 
 describe('', () => {
   before('', () => {
@@ -25,12 +25,6 @@ describe('', () => {
     expect(Utils.getText(LoginPage.deactivateAccountNotificationMsg)).eq(
       'Account is Deactivated. Please contact support for reactivation.',
     );
-  });
-
-  it('should return admin token', async () => {
-    const dataAPIAdmin = await userDataAPI(admin);
-    process.env.TOKEN_ADMIN = dataAPIAdmin.data.token;
-    console.log('adminToken: ' + process.env.TOKEN_ADMIN);
   });
 
   let email = randomUser.email;

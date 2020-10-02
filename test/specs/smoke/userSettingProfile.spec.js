@@ -43,7 +43,9 @@ let country = describe('USER PROFILE PERSONAL INFO FILLING/UPDATE', () => {
   });
 
   it('', () => {
-    expect(settingsProfile.tShirtSizeField.getText()).eq(settingsProfileData.profileTestData.tSizeShirt);
+    expect(settingsProfile.tShirtSizeField.getText()).eq(
+      settingsProfileData.profileTestData.tSizeShirt,
+    );
   });
 });
 

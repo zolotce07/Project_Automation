@@ -1,4 +1,5 @@
-const HookBefore = require('./test/helpers/hooks');
+const HookBeforeAdmin = require('./test/helpers/hooksAdmin');
+const HookBeforeUser = require('./test/helpers/hooksUser');
 
 exports.config = {
 
@@ -84,7 +85,8 @@ exports.config = {
    */
   // before: function (capabilities, specs) {
   // },
-  before: HookBefore,
+  before: HookBeforeAdmin,
+  beforeTest:HookBeforeUser,
   /**
    * Runs before a WebdriverIO command gets executed.
    * @param {String} commandName hook command name
