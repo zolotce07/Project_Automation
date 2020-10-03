@@ -1,5 +1,5 @@
-const HookBeforeAdmin = require('./test/helpers/hooksAdmin');
-const HookBeforeUser = require('./test/helpers/hooksUser');
+const HookBeforeAdmin = require('./test/api/hooksAdmin');
+const HookBeforeUser = require('./test/api/hooksUser');
 
 exports.config = {
 

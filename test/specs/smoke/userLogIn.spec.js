@@ -90,5 +90,4 @@ describe('LOGIN FUNCTIONALITY', () => {
   });
 });
 
-
 // wdio wdio.conf.js --spec ./test/specs/smoke/userLogin.spec.js
