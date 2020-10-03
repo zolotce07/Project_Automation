@@ -1,10 +1,10 @@
 import axios from 'axios';
-const host = 'https://server-stage.pasv.us';
+const host = require('../data/host.json').host;
 
 const dailyReportCheck = () =>
   axios({
     method: 'get',
-    url: `${host}/diary/user/${process.env.ID_USER}`,
+    url: `${host.server}/diary/user/${process.env.ID_USER}`,
     headers: {
       Authorization: process.env.TOKEN_ADMIN,
     },
@@ -15,7 +15,7 @@ const dailyReportCheck = () =>
 const dailyReportDeleteCheck = () =>
   axios({
     method: 'delete',
-    url: `${host}/diary/${process.env.DAILY_REPORT_ID}`,
+    url: `${host.server}/diary/${process.env.DAILY_REPORT_ID}`,
     headers: {
       Authorization: process.env.TOKEN_ADMIN,
     },
@@ -26,7 +26,7 @@ const dailyReportDeleteCheck = () =>
 const userLoginApi = role =>
   axios({
     method: 'post',
-    url: 'https://server-stage.pasv.us/user/login',
+    url: `${host.server}user/login`,
     data: {
       email: role.email,
       password: role.password,
@@ -38,7 +38,7 @@ const userLoginApi = role =>
 const userDeleteApi = role =>
   axios({
     method: 'delete',
-    url: `https://server-stage.pasv.us/user/email/${role.email}`,
+    url: `${host.server}/user/email/${role.email}`,
     headers: {
       Authorization: process.env.TOKEN_ADMIN,
     },
@@ -46,10 +46,10 @@ const userDeleteApi = role =>
     .then(res => res)
     .catch(err => err);
 
-const userDeactivateApi = (email) =>
+const userDeactivateApi = email =>
   axios({
     method: 'get',
-    url: `https://server-stage.pasv.us/user/email/${email}`,
+    url: `${host.server}/user/email/${email}`,
     headers: {
       Authorization: process.env.TOKEN_ADMIN,
     },

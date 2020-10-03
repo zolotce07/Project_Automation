@@ -1,5 +1,4 @@
 import { expect } from 'chai';
-const axios = require('axios');
 import registerPage from '../../pageObject/registerPage';
 import settingsDeactivateA from '../../pageObject/settingsDeactivateA';
 import LoginPage from '../../pageObject/loginPage';
