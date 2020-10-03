@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import settingsPassword from '../../pageObject/settingsPassword';
 import loginPage from '../../pageObject/loginPage';
 import { registeredUser } from '../../data/userData';
