@@ -3,18 +3,18 @@ import loginPage from '../../pageObject/loginPage';
 import { registeredUser } from '../../data/userData';
 import userProfilePage from '../../pageObject/userProfilePage';
 
-describe('', () => {
-  before('', () => {
+describe('USER ABILITY TO CHANGE THE PASSWORD', () => {
+  before('should log in as registered user', () => {
     loginPage.open();
     loginPage.login(registeredUser);
     userProfilePage.goToSetting();
     settingsPassword.settingsPasswordBtn.click();
   });
-  it('', () => {
+  it('should change old password for new password', () => {
     settingsPassword.changePasswordForTest();
   });
 
-  it('', () => {
+  it('should change new password for old password', () => {
     settingsPassword.changeForDefaultPassword();
   });
 });
