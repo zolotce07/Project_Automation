@@ -45,7 +45,7 @@ class shopPage extends BasePage {
   }
 
   coursePayment() {
-    utils.click(this.buyNowBtn[1]);
+    utils.click(this.buyNowBtn[2]);
     utils.setValue(this.emailField, randomUser.email);
     utils.setValue(this.cardNumberField, cardPaymentDetails.cardNumber);
     utils.setValue(this.iDCardExpireField, cardPaymentDetails.cardExpirationData);

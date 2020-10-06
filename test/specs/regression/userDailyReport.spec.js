@@ -5,7 +5,7 @@ import dailyReport from '../../pageObject/dailyReport';
 import dailyReportData from '../../data/dailyReportData';
 import { expect } from 'chai';
 
-describe('USER CREATE DAILY REPORT', () => {
+describe('USER CREATE DAILY REPORT FUNCTIONALITY', () => {
   before(() => {
     loginPage.open();
     loginPage.login(registeredUser);

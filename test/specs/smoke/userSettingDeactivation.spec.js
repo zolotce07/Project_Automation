@@ -7,7 +7,7 @@ import { randomUser } from '../../data/userData';
 import Utils from '../../helpers/utils';
 import { userDeactivateApi } from '../../api/apiFunctions';
 
-describe('ACCOUNT DEACTIVATION', () => {
+describe('ACCOUNT DEACTIVATION FUNCTIONALITY', () => {
   before('Login as new user', () => {
     registerPage.open();
     registerPage.newUserRegister();

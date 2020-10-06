@@ -3,7 +3,7 @@ import loginPage from '../../pageObject/loginPage';
 import { registeredUser } from '../../data/userData';
 import userProfilePage from '../../pageObject/userProfilePage';
 
-describe('USER ABILITY TO CHANGE THE PASSWORD', () => {
+describe('USER CHANGE PASSWORD FUNCTIONALITY', () => {
   before('should log in as registered user', () => {
     loginPage.open();
     loginPage.login(registeredUser);

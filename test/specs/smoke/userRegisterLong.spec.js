@@ -4,7 +4,7 @@ import UserProfilePage from '../../pageObject/userProfilePage';
 import Utils from '../../helpers/utils';
 import { randomUser } from '../../data/userData';
 
-describe('USER REGISTER LONG', () => {
+describe('USER REGISTER LONG FUNCTIONALITY', () => {
   before('Open Register Page', () => {
     RegisterPage.open();
     expect(browser.getUrl()).includes('/user/register');

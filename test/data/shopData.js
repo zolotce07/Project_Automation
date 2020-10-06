@@ -5,3 +5,7 @@ export const cardPaymentDetails = {
   cardCVV: '333',
 };
 
+export const canfirmDetails = {
+  purchaseConfirm: 'Your payment to PASV.US',
+};
+
