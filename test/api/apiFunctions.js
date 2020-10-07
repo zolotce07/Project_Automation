@@ -26,7 +26,7 @@ const dailyReportDeleteCheck = () =>
 const userLoginApi = role =>
   axios({
     method: 'post',
-    url: `${host.server}user/login`,
+    url: `${host.server}/user/login`,
     data: {
       email: role.email,
       password: role.password,
