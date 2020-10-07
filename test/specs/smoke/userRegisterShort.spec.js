@@ -18,11 +18,11 @@ describe('USER REGISTER SHORT FUNCTIONALITY', () => {
     );
   });
 
-  // it('should check if user registered by login it', async () => {
-  //   const randomUserLogin = await userLoginApi(randomUser);
-  //   console.log('USER: ' + Object.entries(randomUserLogin));
-  //   expect(randomUserLogin.data.user.name).eq(randomUser.firstName + ' ' + randomUser.lastName);
-  // });
+  it('should check if user registered by login it', async () => {
+    const randomUserLogin = await userLoginApi(randomUser);
+    console.log('USER: ' + Object.entries(randomUserLogin));
+    expect(randomUserLogin.data.user.name).eq(randomUser.firstName + ' ' + randomUser.lastName);
+  });
 
   it('should random user delete', async () => {
     const randomUserDelete = await userDeleteApi(randomUser);
