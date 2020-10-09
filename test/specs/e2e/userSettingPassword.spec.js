@@ -19,4 +19,4 @@ describe('USER CHANGE PASSWORD FUNCTIONALITY', () => {
   });
 });
 
-// wdio wdio.conf.js --spec ./test/specs/smoke/userSettingPassword.spec.js
+// wdio wdio.conf.js --spec ./test/specs/e2e/userSettingPassword.spec.js

@@ -31,4 +31,4 @@ describe('USER REGISTER SHORT FUNCTIONALITY', () => {
   });
 });
 
-// wdio wdio.conf.js --spec ./test/specs/smoke/userRegisterShort.spec.js
+// wdio wdio.conf.js --spec ./test/specs/e2e/userRegisterShort.spec.js

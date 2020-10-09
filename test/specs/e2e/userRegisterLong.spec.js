@@ -18,4 +18,4 @@ describe('USER REGISTER LONG FUNCTIONALITY', () => {
   });
 });
 
-// wdio wdio.conf.js --spec ./test/specs/smoke/userRegisterLong.spec.js
+// wdio wdio.conf.js --spec ./test/specs/e2e/userRegisterLong.spec.js

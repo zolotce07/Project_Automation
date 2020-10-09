@@ -21,4 +21,4 @@ describe('USER PRODUCT PURCHASE FUNCTIONALITY', () => {
   });
 });
 
-// wdio wdio.conf.js --spec ./test/specs/smoke/userShopPurchase.spec.js
+// wdio wdio.conf.js --spec ./test/specs/e2e/userShopPurchase.spec.js

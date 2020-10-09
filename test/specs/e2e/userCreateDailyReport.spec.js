@@ -39,4 +39,4 @@ describe('CREATE DAY REPORT FUNCTIONALITY', () => {
   });
 });
 
-// wdio wdio.conf.js --spec ./test/specs/smoke/userCreateDailyReport.spec.js
+// wdio wdio.conf.js --spec ./test/specs/e2e/userCreateDailyReport.spec.js

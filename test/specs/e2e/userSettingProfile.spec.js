@@ -49,5 +49,5 @@ let country = describe('USER PROFILE PERSONAL INFO FILLING/UPDATE FUNCTIONALITY'
   });
 });
 
-// wdio wdio.conf.js --spec ./test/specs/smoke/userSettingProfile.spec.js
+// wdio wdio.conf.js --spec ./test/specs/e2e/userSettingProfile.spec.js
 // this.settingsProfilePhone.keys('Backspace'.repeat(5));

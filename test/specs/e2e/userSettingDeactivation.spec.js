@@ -31,4 +31,4 @@ describe('ACCOUNT DEACTIVATION FUNCTIONALITY', () => {
     expect(userDeactivate.message).eq('User get by email. Success');
   });
 });
-// wdio wdio.conf.js --spec ./test/specs/smoke/userSettingDeactivation.spec.js
+// wdio wdio.conf.js --spec ./test/specs/e2e/userSettingDeactivation.spec.js

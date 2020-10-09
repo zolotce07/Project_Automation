@@ -87,4 +87,4 @@ describe('USER CREATE DAILY REPORT FUNCTIONALITY', () => {
   });
 });
 
-// wdio wdio.conf.js --spec ./test/specs/regression/userDailyReport.spec.js
+// wdio wdio.conf.js --spec ./test/specs/e2e/userDailyReport.spec.js
